@@ -1,0 +1,27 @@
+ALGORITHM:
+1. Start by defining the structure for the routing table, which includes arrays for cost
+and next hop information for each router.
+2. Initialize variables: costmat to hold the cost matrix, routers to store the number of
+routers, i, j, k as loop counters, and count to keep track of iterations.
+3. Read the number of routers from the user.
+4. Read the cost matrix from the user, populating the costmat array and initializing the
+routing table arrays.
+5. Perform the distance vector algorithm until no more changes occur:
+6. Set otherShorterPathExists flag to 0.
+a) Iterate over each router (outer loop).
+b) Iterate over each destination router (middle loop).
+c) Iterate over each intermediate router (inner loop).
+d) If a shorter path exists from i to j through k, update the routing table:
+• routingTable[i].cost[j] is updated to the sum of costs from i to k and from k to
+j.
+• routingTable[i].from[j] is updated to k.
+• Set otherShorterPathExists flag to 1 to indicate a change in the routing table.
+• Repeat the above loops until no more changes occur (otherShorterPathExists
+is 0).
+7. Print the routing table for each router:
+a) Iterate over each router.
+b) Print the router's number.
+c) Iterate over each destination router.
+d) Print the destination router's number, the next hop (routingTable[i].from[j] + 1),
+and the cost (routingTable[i].cost[j]).
+8. End the program
